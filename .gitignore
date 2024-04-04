@@ -172,7 +172,6 @@ pyvenv.cfg
 .Rproj.user
 data/
 lib64/
-test.ipynb
 lib64
 .conda
 
