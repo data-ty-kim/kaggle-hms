@@ -173,7 +173,7 @@ pyvenv.cfg
 data/
 lib64/
 test.ipynb
-
+lib64
 
 # R studio
 .Rhistory
