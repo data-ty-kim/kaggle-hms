@@ -170,6 +170,10 @@ Scripts/
 test.py
 pyvenv.cfg
 .Rproj.user
+data/
+lib64/
+test.ipynb
+
 
 # R studio
 .Rhistory
