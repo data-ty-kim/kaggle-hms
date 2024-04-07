@@ -28,7 +28,7 @@ train = (
             'spectrogram_label_offset_seconds': 'min'
         })
 )
-train.columns = ['eeg_min', 'spec_id', 'label_id', 'spec_min']
+train.columns = ['eeg_min', 'spectogram_id', 'label_id', 'spec_min']
 
 # groupby 작업2 - eeg, spectrogram의 offset 최댓값 넣기
 tmp = (
@@ -67,7 +67,7 @@ train.sort_values(by=['eeg_id', 'eeg_min'], inplace=True, ignore_index=True)
 train.rename(columns={'expert_consensus': 'target'}, inplace=True)
 train = train[
                 ['target', 'eeg_id', 'eeg_min', 'eeg_max',
-                 'spec_id', 'spec_min', 'spec_max', 'label_id', 'patient_id', 
+                 'spectogram_id', 'spec_min', 'spec_max', 'label_id', 'patient_id', 
                  'seizure_vote', 'lpd_vote', 'gpd_vote',
                  'lrda_vote', 'grda_vote', 'other_vote']
         ]
@@ -85,7 +85,7 @@ df_multi['shift'] = (
 )
 
 df_view = df_multi[['target', 'eeg_id', 'eeg_min', 'eeg_max', 'shift', 
-                    'spec_id', 'spec_min', 'spec_max', 'label_id']]
+                    'spectogram_id', 'spec_min', 'spec_max', 'label_id']]
 
 # 다음 행 min보다 이전 행 max가 큰 경우만 뽑아서 index 기준으로 찾기
 idx_shift = df_view.loc[df_view['eeg_max'] > df_view['shift']].index + 1
