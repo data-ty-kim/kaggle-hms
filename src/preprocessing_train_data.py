@@ -106,4 +106,6 @@ train.loc[idx_fix, ['eeg_max', 'spec_max']] = (
     df_temp[['eeg_label_offset_seconds', 'spectrogram_label_offset_seconds']].values
 )
 
-train.to_csv('~/kaggle-hms/data/processed/train-processed.csv')
+train.drop(columns=['label_id'], inplace=True)
+
+train.to_csv('~/kaggle-hms/data/processed/train-processed.csv', index=False)
