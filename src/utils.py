@@ -1,10 +1,10 @@
-from config import config, paths
+from src.configuration import config, paths
 import math
 import time
 import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
-from random import seed
+import random
 from torch import manual_seed
 from os import environ
 
@@ -92,7 +92,7 @@ def plot_spectrogram(spectrogram_path: str):
     
     
 def seed_everything(seed: int):
-    seed(seed)
+    random.seed(seed)
     np.random.seed(seed)
     manual_seed(seed)
     environ['PYTHONHASHSEED'] = str(seed) 
@@ -100,10 +100,3 @@ def seed_everything(seed: int):
     
 def sep():
     print("-"*100)
-    
-
-target_preds = [x + "_pred" for x in ['seizure_vote', 'lpd_vote', 'gpd_vote', 'lrda_vote', 'grda_vote', 'other_vote']]
-label_to_num = {'Seizure': 0, 'LPD': 1, 'GPD': 2, 'LRDA': 3, 'GRDA': 4, 'Other':5}
-num_to_label = {v: k for k, v in label_to_num.items()}
-LOGGER = get_logger()
-seed_everything(config.SEED)
