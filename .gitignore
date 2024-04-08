@@ -168,6 +168,7 @@ include/
 /etc/
 Scripts/
 test.py
+test.ipynb
 pyvenv.cfg
 .Rproj.user
 data/

@@ -108,4 +108,9 @@ train.loc[idx_fix, ['eeg_max', 'spec_max']] = (
 
 train.drop(columns=['label_id'], inplace=True)
 
-train.to_csv('~/kaggle-hms/data/processed/train-processed.csv', index=False)
+train['key'] = train['eeg_id'].astype(str) + train['target']
+
+train.to_csv(
+    '~/kaggle-hms/data/processed/train-processed-addkey.csv', 
+    index=False
+)
